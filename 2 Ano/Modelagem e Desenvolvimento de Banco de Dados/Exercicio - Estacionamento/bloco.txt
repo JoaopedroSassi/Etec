@@ -1,0 +1,42 @@
+create database estacionamento
+
+CREATE TABLE cliente (
+cpf int not null,
+nome varchar(60) not null,
+dtNasc date not null,
+cod_cliente int PRIMARY KEY)
+
+CREATE TABLE modelo (
+cod_mod int PRIMARY KEY,
+Desc_2 int not null)
+
+CREATE TABLE estaciona (
+cod_estaciona int PRIMARY KEY,
+hsEntrada time not null,
+hsSaida time not null,
+dia_entrada int not null,
+mes_entrada int not null,
+ano_entrada int not null,
+dia_saida int not null,
+ano_saida int not null,
+mes_saida int not null,
+num int not null,
+cod_veiculo int not null,
+FOREIGN KEY(cod_veiculo) REFERENCES veiculo (cod_veiculo),
+FOREIGN KEY(num) REFERENCES patio (num))
+
+CREATE TABLE patio (
+num int PRIMARY KEY,
+ender varchar(50) not null,
+capacidade int not null)
+
+
+CREATE TABLE veiculo (
+cod_veiculo int PRIMARY KEY ,
+placa varchar(8) not null,
+cor varchar(20) not null,
+cod_cliente int not null,
+cod_mod int not null,
+FOREIGN KEY(cod_cliente) REFERENCES cliente (cod_cliente)
+FOREIGN KEY(cod_mod) REFERENCES modelo (cod_mod))
+

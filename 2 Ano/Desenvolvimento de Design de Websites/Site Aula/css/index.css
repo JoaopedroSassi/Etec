@@ -1,0 +1,222 @@
+
+body{
+	color: #33333;
+	font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif;
+}
+
+header{
+	position: relative;
+
+}
+.sacola{
+	background-image:url(../img/sacola.png);
+	background-repeat: no-repeat;
+	background-position: top right;
+	font-size: 14px;
+	padding-right: 35px;
+	padding-top: 8px;
+	text-align: right;
+	width: 140px;
+	position: absolute;
+	top: 0;
+	right: 0; 
+
+}
+.menu-opcoes{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.menu-opcoes ul: {
+	font-size: 15px;
+}
+
+.menu-opcoes a{
+	color: #003366;
+}
+
+.menu-opcoes ul li{
+	display: inline;
+	margin-left: 20px;
+}
+
+.menu-opcoes a:hover{
+	color: gray;
+}
+
+.menu-opcoes a:active{
+	color: black;
+}
+
+.container{
+	margin: 0 auto;
+	width: 940px;
+}
+
+.busca, .menu-departamentos{
+	background-color: gray;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-right: 10px;
+	width: 230px;
+}
+
+.busca h2, .busca form, .menu-departamentos h2{
+	margin: 10px;
+}
+
+.busca{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+
+.menu-departamentos li{
+background-color: white;
+margin-bottom: 1px;
+padding: 5px 10px;
+}
+
+.menu-departamentos a{
+color: #333333;
+text-decoration: none;
+}
+
+.menu-departamentos {
+clear: left;
+margin-top: 10px;
+padding-bottom: 10px;
+}
+
+.busca input[type=search]{
+width: 170px;
+}
+
+.busca, .menu-departamentos {
+float: left;
+}
+
+.menu-departamentos li ul{
+	display: none;
+}
+
+.menu-departamentos li:hover ul{
+	display: block;	
+}
+
+.menu-departamentos ul ul li{
+	background-color: gray;
+}
+
+.menu-departamentos li li a:before{
+	content: '\27A4';
+}
+
+.busca button{
+	background-image: url(../img/busca.png);
+	background-repeat: no-repeat;
+	border: none;
+	width: 20px;
+	height: 20px;
+	text-indent: -9999px; 
+}
+
+.destaque {
+	margin-top: 10px;
+}
+
+.painel{
+	margin: 10px 0pc;
+	padding: 10px;
+	width: 445px;
+	border-radius: 10px;
+	box-shadow: 5px 5px 4px #999;
+}
+
+.novidades{
+	float: left;
+	background-color: #708090;
+	background: linear-gradient(#708090,#00FFFF);
+}
+
+.mais-vendidos{
+	float: right;
+	background-color: #00FFFF;
+	background: linear-gradient(#00FFFF,#708090);
+}
+
+.painel li{
+	display: inline-block;
+	vertical-align: top;
+	width: 140px;
+	margin: 2px;
+	padding-bottom: 10px;
+}
+
+.painel a{
+	color: #333;
+	font-size: 14px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.painel h2{
+	font-size: 24px;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+	text-shadow: 1px 1px 2px white;
+}
+
+.painel h2:before{
+	content: '\2771';
+	padding-right: 5px;
+}
+
+.painel li:hover{
+	box-shadow: 0 0 5px #333;
+	transition: 0.7s;
+	background-color: white;
+	transform: scale(1.2) rotate(-5deg);
+
+}
+
+footer{
+	background-image: url(../img/fundo-rodape.png);
+	clear: both;
+}
+
+.social a{
+	height: 32px;
+	width: 32px;
+	display: block;
+	text-indent: -9999;
+}
+
+.social a[href*="facebook.com"]{
+	background-image: url(../img/facebook.png);
+}
+
+.social a[href*="twitter.com"]{
+	background-image: url(../img/twitter.png);
+}
+
+.social a[href*="plus.google.com"]{
+	background-image: url(../img/googleplus.png);
+}
+
+footer .container{
+	position: relative;
+}
+
+.social{
+	position: absolute;
+	top: 12px;
+	right: 0;
+}
+
+.social li{
+	float: left;
+	margin-left: 25px;
+}

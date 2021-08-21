@@ -1,0 +1,3 @@
+A diferença entre Include e Required é como o erro vai ser tratado pelo programa.
+	-Inclued: Produz um erro em que o programa vai apenas ignorar aquele erro, mas vai continuar funcionando o resto do mesmo
+	-Require: Produz um erro que para o código inteiro, e na hora da execução, nada funciona, Require produz um erro "E-Compile-Error"

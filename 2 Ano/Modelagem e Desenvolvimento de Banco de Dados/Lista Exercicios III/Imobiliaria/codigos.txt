@@ -1,0 +1,91 @@
+CREATE TABLE Propietario (
+codProprietario int PRIMARY KEY auto_increment,
+nome varchar(50) not null,
+telcel varchar(15) not null,
+tel varchar(15) null,
+email varchar(50) unique not null,
+dataNascimento date not null,
+rg varchar(15) unique not null,
+cpf varchar(15) unique not null,
+rua varchar(50) not null,
+numero int not null,
+complemento varchar(50) null,
+bairro varchar(50) not null,
+cidade varchar(50) not null,
+estado char(2) not null,
+cep char(8) not null)
+
+CREATE TABLE Imovel (
+codImovel int PRIMARY KEY auto_increment,
+rua varchar(50) not null,
+numero int not null,
+complemento varchar(50) null,
+bairro varchar(50) not null,
+cidade varchar(50) not null,
+estado char(2) not null,
+cep varchar(15) not null,
+preco decimal(7,2) not null,
+jardim bit not null,
+lavanderia bit not null,
+quantQuartos int not null,
+ocupado bit not null,
+comercial bit not null,
+quanComodos int not null,
+quantBanheiros int not null,
+quantSuites int not null,
+quantCarros int not null,
+garagem bit not null,
+quintal bit not null,
+codProprietario int not null,
+FOREIGN KEY(codProprietario) REFERENCES Propietario (codProprietario))
+
+
+CREATE TABLE Corretor (
+codCorretor int PRIMARY KEY auto_increment,
+nome varchar(50) not null,
+telcel varchar (20) not null,
+tel varchar (20) null,
+email varchar(50) unique not null,
+dataNascimento date not null,
+rg varchar(15) unique not null,
+cpf varchar(15) unique not null,
+rua varchar(50) not null,
+numero int not null,
+complemento varchar(50) null,
+bairro varchar(50) not null,
+cidade varchar(50) not null,
+estado char(2) not null,
+cep char(8) not null)
+
+CREATE TABLE Inquilino (
+codInquilino int PRIMARY KEY auto_increment,
+nome varchar(50) not null,
+telcel varchar (20) not null,
+telefone varchar (20) not null,
+email varchar(50) unique not null,
+dataNascimento date not null,
+rg varchar(15) unique not null,
+cpf varchar(15) unique not null,
+rua varchar(50) not null,
+numero int not null,
+complemento varchar(50) null,
+bairro varchar(50) not null,
+cidade varchar(50) not null,
+estado char(2) not null,
+cep char(8) not null)
+
+CREATE TABLE Aluguel (
+codAluguel int PRIMARY KEY auto_increment,
+dataIni date not null,
+dataFim date not null,
+vencimento int not null,
+comissao decimal(7,2) null,
+Contrato varchar(20) not null,
+codInquilino int not null,
+codCorretor int not null,
+codImovel int not null,
+FOREIGN KEY(codInquilino) REFERENCES Inquilino (codInquilino),
+FOREIGN KEY(codCorretor) REFERENCES Corretor (codCorretor),
+FOREIGN KEY(codImovel) REFERENCES Imovel (codImovel))
+
+

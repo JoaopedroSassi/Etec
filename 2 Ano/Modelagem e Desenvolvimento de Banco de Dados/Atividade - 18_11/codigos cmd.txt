@@ -1,0 +1,292 @@
+Microsoft Windows [versão 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation. Todos os direitos reservados.
+
+C:\Users\Alunos>cd..
+
+C:\Users>cd..
+
+C:\>cd xampp
+
+C:\xampp>cd mysql
+
+C:\xampp\mysql>cd bin
+
+C:\xampp\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 33
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create user 'funcionario'@'localhost' identified by '1234';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> create database teste
+    -> ;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> use teste
+Database changed
+MariaDB [teste]> exit
+Bye
+
+C:\xampp\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 34
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> grant all on teste.* to 'funcionario'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> exit
+Bye
+
+C:\xampp\mysql\bin>mysql -u funcionario -p
+Enter password: ****
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 45
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create user 'visitante'@'localhost' identified by 1234
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near '123
+4' at line 1
+MariaDB [(none)]> create user 'visitante'@'localhost' identified by '1234';
+ERROR 1227 (42000): Access denied; you need (at least one of) the CREATE USER pr
+ivilege(s) for this operation
+MariaDB [(none)]> exit
+Bye
+
+C:\xampp\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 46
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create user 'visitante'@'localhost' identified by '1234';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> grant select on teste.* to 'visitante'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> show grants for 'visitante'@'localhost'
+    -> ;
++-------------------------------------------------------------------------------
+-----------------------------------+
+| Grants for visitante@localhost
+                                   |
++-------------------------------------------------------------------------------
+-----------------------------------+
+| GRANT USAGE ON *.* TO 'visitante'@'localhost' IDENTIFIED BY PASSWORD '*A4B6157
+319038724E3560894F7F932C8886EBFCF' |
+| GRANT SELECT ON `teste`.* TO 'visitante'@'localhost'
+                                   |
++-------------------------------------------------------------------------------
+-----------------------------------+
+2 rows in set (0.00 sec)
+
+MariaDB [(none)]> show grants for 'funcionario'@'localhost'
+    -> ;
++-------------------------------------------------------------------------------
+-------------------------------------+
+| Grants for funcionario@localhost
+                                     |
++-------------------------------------------------------------------------------
+-------------------------------------+
+| GRANT USAGE ON *.* TO 'funcionario'@'localhost' IDENTIFIED BY PASSWORD '*A4B61
+57319038724E3560894F7F932C8886EBFCF' |
+| GRANT ALL PRIVILEGES ON `teste`.* TO 'funcionario'@'localhost'
+                                     |
++-------------------------------------------------------------------------------
+-------------------------------------+
+2 rows in set (0.00 sec)
+
+MariaDB [(none)]> show grants for 'visitante'@'localhost';
++-------------------------------------------------------------------------------
+-----------------------------------+
+| Grants for visitante@localhost
+                                   |
++-------------------------------------------------------------------------------
+-----------------------------------+
+| GRANT USAGE ON *.* TO 'visitante'@'localhost' IDENTIFIED BY PASSWORD '*A4B6157
+319038724E3560894F7F932C8886EBFCF' |
+| GRANT SELECT ON `teste`.* TO 'visitante'@'localhost'
+                                   |
++-------------------------------------------------------------------------------
+-----------------------------------+
+2 rows in set (0.00 sec)
+
+MariaDB [(none)]>  exit
+Bye
+
+C:\xampp\mysql\bin>mysql -u funcionario -p
+Enter password: ****
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 47
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database uniao
+    -> ;
+ERROR 1044 (42000): Access denied for user 'funcionario'@'localhost' to database
+ 'uniao'
+MariaDB [(none)]> create datbase uniao;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near 'dat
+base uniao' at line 1
+MariaDB [(none)]> create database uniao;
+ERROR 1044 (42000): Access denied for user 'funcionario'@'localhost' to database
+ 'uniao'
+MariaDB [(none)]> grant all on *.* to 'funcionario'@'localhost';
+ERROR 1045 (28000): Access denied for user 'funcionario'@'localhost' (using pass
+word: YES)
+MariaDB [(none)]> exit
+Bye
+
+C:\xampp\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 62
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> grant all on *.* to 'funcionario'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> create database uniao;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> exit
+Bye
+
+C:\xampp\mysql\bin>mysql -u funcionario -p
+Enter password: ****
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 85
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database uniao;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> grant select on *.* to 'visitante'@'localhost'
+    -> ;
+ERROR 1045 (28000): Access denied for user 'funcionario'@'localhost' (using pass
+word: YES)
+MariaDB [(none)]> exit
+Bye
+
+C:\xampp\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 114
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> grant select on *.* to 'visitante'@'localhost'
+    -> ;
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> exit
+Bye
+
+C:\xampp\mysql\bin>mysql -u visitante -p
+Enter password: *****
+ERROR 1045 (28000): Access denied for user 'visitante'@'localhost' (using passwo
+rd: YES)
+
+C:\xampp\mysql\bin>mysql -u visitante -p
+Enter password: ****
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 150
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> select e.nome, d.nomedep from empregado as e, departamento as
+d, registro as r where e.cod=r.codEmp and r.codDep=d.codDep
+    -> ;
+ERROR 1046 (3D000): No database selected
+MariaDB [(none)]> use uniao
+Database changed
+MariaDB [uniao]> select e.nome, d.nomedep from empregado as e, departamento as d
+, registro as r where e.cod=r.codEmp and r.codDep=d.codDep
+    -> ;
++----------+-----------+
+| nome     | nomedep   |
++----------+-----------+
+| CARLOS   | QUALIDADE |
+| CINTIA   | VENDAS    |
+| VERONICA | VENDAS    |
+| GABRIELA | DIRETORIA |
++----------+-----------+
+4 rows in set (0.00 sec)
+
+MariaDB [uniao]> select e.nome, d.nomedep from empregado as e, departamento as d
+, registro as r where e.cod=r.codEmp and r.codDep=d.codDep and d.codDep="VEND"
+    -> ;
++----------+---------+
+| nome     | nomedep |
++----------+---------+
+| CINTIA   | VENDAS  |
+| VERONICA | VENDAS  |
++----------+---------+
+2 rows in set (0.00 sec)
+
+MariaDB [uniao]> select e.nome, d.nomedep, e.sal, d.numSala from empregado as e,
+ departamento as d, registro as r where e.cod=r.codEmp and r.codDep=d.codDep and
+ d.numSala=101 and e.sal>2000;
++----------+---------+---------+---------+
+| nome     | nomedep | sal     | numSala |
++----------+---------+---------+---------+
+| VERONICA | VENDAS  | 2500.00 |     101 |
++----------+---------+---------+---------+
+1 row in set (0.00 sec)
+
+MariaDB [uniao]> select e.nome, d.nomedep, e.idade from empregado as e, departam
+ento as d, registro as r where e.cod=r.codEmp and r.codDep=d.codDep and e.idade>
+30 and d.codDep>"QUA";
++--------+---------+-------+
+| nome   | nomedep | idade |
++--------+---------+-------+
+| CINTIA | VENDAS  |    38 |
++--------+---------+-------+
+1 row in set (0.00 sec)
+
+MariaDB [uniao]> select count(e.cod) as "Pessoas que trabalham na Direção" from
+empregado as e, departamento as d, registro as r where e.cod=r.codEmp and r.codD
+ep=d.codDep and r.codDep="DIR";
++----------------------------------+
+| Pessoas que trabalham na Direção |
++----------------------------------+
+|                                1 |
++----------------------------------+
+1 row in set (0.00 sec)
+
+MariaDB [uniao]>

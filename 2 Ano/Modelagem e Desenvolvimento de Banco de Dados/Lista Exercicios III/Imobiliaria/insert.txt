@@ -1,0 +1,39 @@
+insert into proprietario (nome, telcel, tel, email, dataNascimento, rg, cpf, rua, numero, complemento, bairro, cidade, estado, cep)
+
+values ('prop1', '4663548965', '78645378', 'prop1@gmail.com', '2000-12-12', 
+'987.354-50', '654.891.5664', 'Rua prop1', 12,
+ 'ao lado do lado', 
+'bairro prop1', 'ribera bera', 'SP', '12345678');
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into corretor (nome, telcel, tel, email, dataNascimento, rg, cpf, rua, numero, complemento, bairro, cidade, estado, cep)
+
+values ('corre1', '466354005', '78698378', 'corre1@gmail.com', '2000-01-01', 
+'157.354-50', '654.891.9874', 'Rua corre1', 1,
+ 'em cima do cic', 
+
+'bairro corre1', 'santo andre', 'SP', '98765432');
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into inquilino (nome, telcel, telefone, email, dataNascimento, rg, cpf, rua, numero, complemento, bairro, cidade, estado, cep, fiador)
+
+values ('inq1', '666666666', '78000378', 'inq1@gmail.com', '2000-05-21', 
+'157.435-50', '456.891.9874', 'Rua inq1', 50,
+ 'baixo do baixo', 
+
+'bairro inq1', 'maua', 'SP', '98534920', 'fiador1');
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into imovel (rua, numero, complemento, bairro, cidade, estado, cep, preco, jardim, lavanderia, quantQuartos, ocupado, comercial, quanComodos, quantBanheiros, quantSuites, quantCarros, garagem, quintal, codProprietario)
+
+values ('ruaimov1', 80, 'fica ali', 'bairro1', 'cida1', 
+'RJ', '123456789158011', 800.00, 1, 0, 2, 0, 0, 4, 1, 0, 0, 0, 0, 1);
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into aluguel (dataIni, dataFim, vencimento, comissao, Contrato, codInquilino, codCorretor, codImovel)
+
+values ('2007-12-12', '2020-12-12', 14, 600.00, 'contrato5', 7, 5, 6);

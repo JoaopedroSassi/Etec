@@ -1,0 +1,112 @@
+create database bar
+
+CREATE TABLE produto (
+codproduto int PRIMARY KEY auto_increment,
+preco decimal(7,2) not null,
+nome varchar(20) not null
+)
+
+CREATE TABLE mesa (
+codmesa int PRIMARY KEY auto_increment,
+mesa int not null
+)
+
+CREATE TABLE itemconta (
+qtde int not null,
+totalitens decimal(7,2) not null,
+codproduto int not null,
+codconta int not null,
+FOREIGN KEY(codproduto) REFERENCES produto (codproduto),
+FOREIGN KEY(codconta) REFERENCES conta(codconta)
+)
+
+CREATE TABLE garcom (
+codgarcom int PRIMARY KEY auto_increment,
+nomegarcom varchar(20) not null
+)
+
+CREATE TABLE conta (
+codconta int PRIMARY KEY auto_increment,
+horaentrada time not null,
+horasaida time not null,
+valortotal decimal(7,2) not null,
+valorpessoa decimal(7,2) not null,
+qtdepessoas int not null,
+data date not null,
+codgarcom int not null,
+codmesa int not null,
+FOREIGN KEY(codgarcom) REFERENCES garcom (codgarcom),
+FOREIGN KEY(codmesa) REFERENCES mesa (codmesa)
+)
+
+=========================================================================================
+insert into garcom (nomegarcom ) values
+
+('garcom1'),
+
+('garcom2'),
+
+('garcom3'),
+
+('garcom4'),
+
+('garcom5')
+
+
+
+
+insert into produto (nome, preco) values
+
+('prod1', 10),
+
+('prod2', 20),
+
+('prod3', 30),
+
+('prod4', 40),
+
+('prod5', 50)
+
+
+
+insert into mesa (mesa) values
+
+(1),
+
+(2),
+
+(3),
+
+(4),
+
+(5)
+
+
+
+insert into conta (horaentrada, horasaida, valortotal, valorpessoa, qtdepessoas, data, codgarcom, codmesa) values
+
+('00:52:32', '01:00:00', 52, 12, 3, '2019-05-05', 1, 1),
+
+('05:00:32', '06:00:00', 10, 5, 2, '2019-06-05', 2, 2),
+
+('22:30:12', '23:00:00', 15, 3, 5, '2019-07-05', 3, 3),
+
+('15:50:32', '16:20:00', 20, 10, 2, '2019-08-05', 4, 4),
+
+('13:20:00', '14:00:00', 30, 10, 3, '2019-09-05', 5, 5)
+
+insert into itemconta (qtde, totalitens, codproduto, codconta) values
+
+(5, 35, 1, 1),
+
+(6, 60, 2, 2),
+
+(7, 100, 3, 3 ),
+
+(8, 80, 4, 4),
+
+(9, 2, 5, 5)
+
+
+
+

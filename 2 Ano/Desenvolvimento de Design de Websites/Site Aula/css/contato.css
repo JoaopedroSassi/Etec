@@ -1,0 +1,197 @@
+body{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 15px;
+	margin-top: 20px;
+}
+
+header{
+	position: relative;
+	margin: auto;
+}
+
+#logo{
+	margin-top: 10px;
+}
+
+.menu-opcoes {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.menu-opcoes ul{
+	font-size: 15px;
+	bottom: 0;
+	right: 0;
+	text-decoration: underline;
+}
+
+.menu-opcoes ul li {
+	display: inline;
+	margin-left: 20px;
+}
+
+.menu-opcoes a{
+	color: black;
+	transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+}
+
+.menu-opcoes a:hover{
+	transition: 0.4s;
+}
+
+.menu-opcoes a:active{
+	transition: 0.4s;
+}
+
+.tudo{
+	width: 1000px;
+	margin: auto;
+}
+
+.formulario{
+	text-align: center;
+	padding: 20px;
+	border-radius: 30px;
+	box-shadow: 5px 5px 5px #999;
+}
+
+input{
+	margin-bottom: 20px;
+	box-shadow: 0 0 0;
+	border: 0 none;
+	outline: 0;
+	box-shadow: 2px 2px 2px #999;
+}
+
+#nome:hover{
+	box-shadow: 4px 4px 3px #999;
+	transition: 1s;
+	font-size: 16px;
+}
+
+#email:hover{
+	box-shadow: 4px 4px 3px #999;
+	transition: 1s;
+	font-size: 16px;
+}
+
+#assunto:hover{
+	box-shadow: 4px 4px 3px #999;
+	transition: 1s;
+	font-size: 16px;
+}
+
+#msg:hover{
+	box-shadow: 4px 4px 3px #999;
+	transition: 1s;
+	font-size: 16px;
+}
+
+h1{
+	margin-top: 10px;
+	margin-bottom: 30px;
+	border-color: #B8860B;
+	border-bottom:double;
+	border-width: 7px;
+	font-size: 22px;
+}
+
+h2{
+	text-align: center;
+	text-transform: uppercase;
+	font-size:25px; 
+	margin-bottom: 20px;
+	text-shadow: 2px 2px 8px #999;
+}
+
+textarea{
+	resize: none;
+	font-family: "arial", sans-serif;
+	font-size: 15px;
+	text-indent: 5px;
+	text-align: justify;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	border: 0 none;
+	outline: 0;
+	box-shadow: 2px 2px 2px #999;
+}
+
+button{
+	border-radius: 5px;
+	border: none;
+	box-shadow: 2px 2px 2px #999;
+	transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -webkit-transition: 1s ease-in-out;
+}
+
+button:hover{
+	box-shadow: 3px 3px 5px #999;
+	font-size: 16px;
+	transition: 1s;
+}
+
+footer{
+	margin-top: 50px;
+	background-image: url(../img/fundo-rodape.png);
+	clear: both;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+footer .container{
+	position: relative;
+	margin: 0 auto;
+	width: 940px;
+}
+
+.social a{
+	height: 32px;
+	width: 32px;
+	display: block;
+	text-indent: -9999px;
+	margin-right: 10px;
+}
+
+.social a[href*="facebook.com"]{
+	background-image: url(../img/facebook.png);
+}
+
+.social a[href*="twitter.com"]{
+	background-image: url(../img/twitter.png);
+}
+
+.social a[href*="plus.google.com"]{
+	background-image: url(../img/googleplus.png);
+}
+
+.social{
+	position: absolute;
+	top: 12px;
+	right: 0;
+}
+
+.social li{
+	float: left;
+	margin-left: 15px; 
+	transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+}
+
+.social li:hover{
+	transform: scale(1.2) rotate(5deg);
+	transition: 0.3s;
+}
+
+.container {
+	margin: 0 auto;
+	width: 940px;
+}
+
+
+

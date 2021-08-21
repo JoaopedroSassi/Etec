@@ -1,0 +1,176 @@
+Microsoft Windows [versão 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation. Todos os direitos reservados.
+
+C:\Users\Lab01>cd c:\xampp\mysql\bin
+
+c:\xampp\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.1.13-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database produtora_vinho
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [(none)]> use produtora_vinho
+Database changed
+MariaDB [produtora_vinho]> create table regiao(
+    -> id_regiao int auto_increment primary key,
+    -> descri_regiao varchar(50) not null);
+Query OK, 0 rows affected (0.25 sec)
+
+MariaDB [produtora_vinho]> show tables
+    -> ;
++---------------------------+
+| Tables_in_produtora_vinho |
++---------------------------+
+| regiao                    |
++---------------------------+
+1 row in set (0.00 sec)
+
+MariaDB [produtora_vinho]> describe regiao;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id_regiao     | int(11)     | NO   | PRI | NULL    | auto_increment |
+| descri_regiao | varchar(50) | NO   |     | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+2 rows in set (0.04 sec)
+
+MariaDB [produtora_vinho]> create table produtor(
+    -> cod_produtor int primary key auto_increment,
+    -> nome_produtor varchar(50),
+    -> morada_produtor varchar(50),
+    -> telefone varchar (15),
+    -> email varchar(50) unique,
+    -> codregiao int,
+    -> foreign key (codregiao) references regiao(id_regiao));
+Query OK, 0 rows affected (0.28 sec)
+
+MariaDB [produtora_vinho]> describe produtor;
++-----------------+-------------+------+-----+---------+----------------+
+| Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| cod_produtor    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nome_produtor   | varchar(50) | YES  |     | NULL    |                |
+| morada_produtor | varchar(50) | YES  |     | NULL    |                |
+| telefone        | varchar(15) | YES  |     | NULL    |                |
+| email           | varchar(50) | YES  | UNI | NULL    |                |
+| codregiao       | int(11)     | YES  | MUL | NULL    |                |
++-----------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.02 sec)
+
+MariaDB [produtora_vinho]> create table vinho(
+    -> vinho_id int primary key auto_increment,
+    -> nome_vinho varchar(30),
+    -> ano_vinh int,
+    -> cor varchar (15),
+    -> grau decimal(7,2),
+    -> preco decimal(7,2),
+    -> cod_produtor int,
+    -> foreign key (cod_produtor) references produtor(cod_produtor));
+Query OK, 0 rows affected (0.31 sec)
+
+MariaDB [produtora_vinho]> describe vinho
+    -> ;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| vinho_id     | int(11)      | NO   | PRI | NULL    | auto_increment |
+| nome_vinho   | varchar(30)  | YES  |     | NULL    |                |
+| ano_vinh     | int(11)      | YES  |     | NULL    |                |
+| cor          | varchar(15)  | YES  |     | NULL    |                |
+| grau         | decimal(7,2) | YES  |     | NULL    |                |
+| preco        | decimal(7,2) | YES  |     | NULL    |                |
+| cod_produtor | int(11)      | YES  | MUL | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+7 rows in set (0.02 sec)
+
+MariaDB [produtora_vinho]> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near '' a
+t line 1
+MariaDB [produtora_vinho]>  show tables;
++---------------------------+
+| Tables_in_produtora_vinho |
++---------------------------+
+| produtor                  |
+| regiao                    |
+| vinho                     |
++---------------------------+
+3 rows in set (0.00 sec)
+
+MariaDB [produtora_vinho]> create table casta(
+    -> cod_casta int primary key auto_increment,
+    -> casta vvarchar(50));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near 'vva
+rchar(50))' at line 3
+MariaDB [produtora_vinho]> create table casta(
+    -> cod_casta int primary key auto_increment,
+    -> casta varchar(50));
+Query OK, 0 rows affected (0.20 sec)
+
+MariaDB [produtora_vinho]> describecasta;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near 'des
+cribecasta' at line 1
+MariaDB [produtora_vinho]> describe casta;
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| cod_casta | int(11)     | NO   | PRI | NULL    | auto_increment |
+| casta     | varchar(50) | YES  |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+2 rows in set (0.02 sec)
+
+MariaDB [produtora_vinho]> show tables
+    -> ;
++---------------------------+
+| Tables_in_produtora_vinho |
++---------------------------+
+| casta                     |
+| produtor                  |
+| regiao                    |
+| vinho                     |
++---------------------------+
+4 rows in set (0.00 sec)
+
+MariaDB [produtora_vinho]> create table casta_vinho(
+    -> codVinho int,
+    -> codCasta int,
+    -> foreign key(codVinho) references vinho(vinho_id),
+    -> foreign key(codCasta) references casta(cod_casta));
+Query OK, 0 rows affected (0.33 sec)
+
+MariaDB [produtora_vinho]> describe casta_vinho
+    -> ;
++----------+---------+------+-----+---------+-------+
+| Field    | Type    | Null | Key | Default | Extra |
++----------+---------+------+-----+---------+-------+
+| codVinho | int(11) | YES  | MUL | NULL    |       |
+| codCasta | int(11) | YES  | MUL | NULL    |       |
++----------+---------+------+-----+---------+-------+
+2 rows in set (0.05 sec)
+
+MariaDB [produtora_vinho]> show tales;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near 'tal
+es' at line 1
+MariaDB [produtora_vinho]> show tables;
++---------------------------+
+| Tables_in_produtora_vinho |
++---------------------------+
+| casta                     |
+| casta_vinho               |
+| produtor                  |
+| regiao                    |
+| vinho                     |
++---------------------------+
+5 rows in set (0.00 sec)
+
+MariaDB [produtora_vinho]>

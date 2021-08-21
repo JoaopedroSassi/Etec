@@ -1,0 +1,50 @@
+1) crie um usuario funcionario
+
+2) De para o usuário acesso total ao banco de dados
+
+3) Crie um usuário visitante, dê para ele apenas acesso ao select
+
+4) Mostre os privilégios dos dois usuários
+
+5) Crie o Banco de dados abaixo com o perfil de funcionario
+
+create database uniao;
+
+use uniao;
+
+create table empregado
+(cod int primary key auto_increment,
+nome varchar(50),
+idade int,
+sal decimal(7,2));
+
+create table departamento
+(codDep varchar(10) primary key,
+nomeDep varchar(30),
+numSala int);
+
+create table registro
+(numReg int primary key auto_increment,
+codEmp int,
+codDep varchar(10),
+foreign key (codEmp) references empregado(cod),
+foreign key (codDep) references departamento(codDep));
+
+insert into empregado (nome, idade, sal) values
+('CARLOS',39, 1000),
+('CINTIA', 38, 1500), 
+('VERONICA', 23, 2500), 
+('GABRIELA', 18, 4000);
+
+insert into departamento values 
+('VEND', 'VENDAS', 101), 
+('COM','COMPRAS',102),
+('DIR','DIRETORIA',201),
+('QUA','QUALIDADE',202);
+
+insert into registro (codEmp,codDep) values 
+(1, 'QUA'),
+(2,'VEND'),
+(3,'VEND');
+
+6) Crie os proximos joins com o usuário visitante.(troque usuário).

@@ -1,0 +1,290 @@
+Microsoft Windows [versão 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation. Todos os direitos reservados.
+
+C:\Users\Alunos>cd..
+
+C:\Users>cd..
+
+C:\>c:\xampp\mysql\bin>mysql -u root -p
+Acesso negado.
+
+C:\>cd xampp
+
+C:\xampp>cd mysql
+
+C:\xampp\mysql>cd bin
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password: ****
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: Y
+ES)
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 3
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show grants for 'root'@'localhost';
++---------------------------------------------------------------------+
+| Grants for root@localhost                                           |
++---------------------------------------------------------------------+
+| GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION |
+| GRANT PROXY ON ''@'%' TO 'root'@'localhost' WITH GRANT OPTION       |
++---------------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+MariaDB [(none)]> create user 'casualgamers'@'localhost' indentified by '159951'
+;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near 'ind
+entified by '159951'' at line 1
+MariaDB [(none)]> create user 'casualgamers'@'localhost' indentified by '1234';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MariaDB server version for the right syntax to use near 'ind
+entified by '1234'' at line 1
+MariaDB [(none)]> create user 'casualgamers'@'localhost' identified by '1599951'
+;
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> show grants for 'casualgamers'@'localhost';
++-------------------------------------------------------------------------------
+--------------------------------------+
+| Grants for casualgamers@localhost
+                                      |
++-------------------------------------------------------------------------------
+--------------------------------------+
+| GRANT USAGE ON *.* TO 'casualgamers'@'localhost' IDENTIFIED BY PASSWORD '*A29B
+6C64848E80FECF6703086B24970C7EF03405' |
++-------------------------------------------------------------------------------
+--------------------------------------+
+1 row in set (0.00 sec)
+
+MariaDB [(none)]> create database aluno;
+Query OK, 1 row affected (0.01 sec)
+
+MariaDB [(none)]> use aluno;
+Database changed
+MariaDB [aluno]> create table cadastro (
+    -> id int,
+    -> nome varchar(30),
+    -> end varchar(30));
+Query OK, 0 rows affected (0.09 sec)
+
+MariaDB [aluno]> insert into cadastro values(1,'bruno do tecnoart','rua pc ruim'
+),
+    -> (2,'stardew valley','rua do limoeiro');
+Query OK, 2 rows affected (0.02 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+MariaDB [aluno]> select * from cadastro;
++------+-------------------+-----------------+
+| id   | nome              | end             |
++------+-------------------+-----------------+
+|    1 | bruno do tecnoart | rua pc ruim     |
+|    2 | stardew valley    | rua do limoeiro |
++------+-------------------+-----------------+
+2 rows in set (0.00 sec)
+
+MariaDB [aluno]> quit
+Bye
+
+C:\xampp\mysql\bin>mysql -u casualgamers -p
+Enter password: ******
+ERROR 1045 (28000): Access denied for user 'casualgamers'@'localhost' (using pas
+sword: YES)
+
+C:\xampp\mysql\bin>mysql -u casualgamers -p
+Enter password: ******
+ERROR 1045 (28000): Access denied for user 'casualgamers'@'localhost' (using pas
+sword: YES)
+
+C:\xampp\mysql\bin>mysql -u casualgamers -p
+Enter password: *******
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 6
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use aluno;
+ERROR 1044 (42000): Access denied for user 'casualgamers'@'localhost' to databas
+e 'aluno'
+MariaDB [(none)]> quit
+Bye
+
+C:\xampp\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 7
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> grant all on aluno.* to 'casualgamers'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> show grants for 'casualgamers'@'localhost';
++-------------------------------------------------------------------------------
+--------------------------------------+
+| Grants for casualgamers@localhost
+                                      |
++-------------------------------------------------------------------------------
+--------------------------------------+
+| GRANT USAGE ON *.* TO 'casualgamers'@'localhost' IDENTIFIED BY PASSWORD '*A29B
+6C64848E80FECF6703086B24970C7EF03405' |
+| GRANT ALL PRIVILEGES ON `aluno`.* TO 'casualgamers'@'localhost'
+                                      |
++-------------------------------------------------------------------------------
+--------------------------------------+
+2 rows in set (0.00 sec)
+
+MariaDB [(none)]> quit
+Bye
+
+C:\xampp\mysql\bin>mysql -u casualgamers-p
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> quit
+Bye
+
+C:\xampp\mysql\bin>mysql -u casualgamers -p
+Enter password: *******
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use aluno;
+Database changed
+MariaDB [aluno]> insert into cadastro values
+    -> (3,'Rogerio','Rua dos maloka');
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [aluno]> select * from cadastro;
++------+-------------------+-----------------+
+| id   | nome              | end             |
++------+-------------------+-----------------+
+|    1 | bruno do tecnoart | rua pc ruim     |
+|    2 | stardew valley    | rua do limoeiro |
+|    3 | Rogerio           | Rua dos maloka  |
++------+-------------------+-----------------+
+3 rows in set (0.00 sec)
+
+MariaDB [aluno]> quit
+Bye
+
+C:\xampp\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 10
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> revoke all privileges, grant option from 'casualgamers'@'local
+host';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> show grants for 'casualgamers'@'localhost'
+    -> ;
++-------------------------------------------------------------------------------
+--------------------------------------+
+| Grants for casualgamers@localhost
+                                      |
++-------------------------------------------------------------------------------
+--------------------------------------+
+| GRANT USAGE ON *.* TO 'casualgamers'@'localhost' IDENTIFIED BY PASSWORD '*A29B
+6C64848E80FECF6703086B24970C7EF03405' |
++-------------------------------------------------------------------------------
+--------------------------------------+
+1 row in set (0.00 sec)
+
+MariaDB [(none)]> grant select on aluno.* to 'casualgamers'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> quit
+Bye
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password: *******
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: Y
+ES)
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password: *********
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: Y
+ES)
+
+C:\xampp\mysql\bin>mysql -u casualgamers -p
+Enter password: *******
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 13
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use aluno
+Database changed
+MariaDB [aluno]> insert into cadastro values (4,'Marilene','Rua dos numero');
+ERROR 1142 (42000): INSERT command denied to user 'casualgamers'@'localhost' for
+ table 'cadastro'
+MariaDB [aluno]> select * from cadastro;
++------+-------------------+-----------------+
+| id   | nome              | end             |
++------+-------------------+-----------------+
+|    1 | bruno do tecnoart | rua pc ruim     |
+|    2 | stardew valley    | rua do limoeiro |
+|    3 | Rogerio           | Rua dos maloka  |
++------+-------------------+-----------------+
+3 rows in set (0.00 sec)
+
+MariaDB [aluno]> quit
+Bye
+
+C:\xampp\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 14
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> set password for 'casualgamers'@'localhost' = PASSWORD('joao')
+;
+Query OK, 0 rows affected (0.01 sec)
+
+MariaDB [(none)]> quit
+Bye
+
+C:\xampp\mysql\bin>mysql -u casualgamers -p
+Enter password: ****
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 15
+Server version: 10.1.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]>

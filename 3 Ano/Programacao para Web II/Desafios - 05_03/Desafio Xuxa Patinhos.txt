@@ -1,0 +1,64 @@
+Desafio - Programa em Java dos patinhos da Xuxa
+Xuxa, criou uma música que tem o segunte formato:
+
+n patinhos foram passear
+Além das montanhas
+Para brincar
+A mamãe gritou: Quá, quá, quá, quá
+Mas só n-1 patinhos voltaram de lá.
+
+
+Que se repete até nenhum patinho voltar de lá.
+Ao final, todos os patinhos voltam:
+
+A mamãe patinha foi procurar
+Além das montanhas
+Na beira do mar
+A mamãe gritou: Quá, quá, quá, quá
+E os n patinhos voltaram de lá.
+
+Crie um programa em Java que recebe um inteiro positivo do usuário e exibe a música inteira na tela, onde o inteiro recebido representa o número inicial n de patinhos que foram passear.
+
+
+
+
+Digitado 3
+
+3 patinhos foram passear
+Além das montanhas
+Para brincar
+A mamãe gritou: Quá, quá, quá, quá
+Mas só 2 patinhos voltaram de lá.
+
+2 patinhos foram passear
+Além das montanhas
+Para brincar
+A mamãe gritou: Quá, quá, quá, quá
+Mas só 1 patinhos voltaram de lá.
+
+1 patinhos foram passear
+Além das montanhas
+Para brincar
+A mamãe gritou: Quá, quá, quá, quá
+Mas só 0 patinhos voltaram de lá.
+
+A mamãe patinha foi procurar
+Além das montanhas
+Na beira do mar
+A mamãe gritou: Quá, quá, quá, quá
+E os 1 patinhos voltaram de lá.
+
+A mamãe patinha foi procurar
+Além das montanhas
+Na beira do mar
+A mamãe gritou: Quá, quá, quá, quá
+E os 2 patinhos voltaram de lá.
+
+A mamãe patinha foi procurar
+Além das montanhas
+Na beira do mar
+A mamãe gritou: Quá, quá, quá, quá
+E os 3 patinhos voltaram de lá.
+
+Fim
+

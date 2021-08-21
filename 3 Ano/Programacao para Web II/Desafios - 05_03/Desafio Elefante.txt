@@ -1,0 +1,19 @@
+Desafio - Elefantes incomodam muita gente
+
+Entre com o numero  n de elefantes.
+
+1 elefante incomoda muita gente....
+1 elefante incomoda 
+muito mais
+
+2 elefante incomoda muita gente....
+2 elefante incomoda incomoda
+muito mais
+
+3 elefante incomoda muita gente....
+3 elefante incomoda incomoda incomoda
+muito mais
+
+n elefante incomoda muita gente....
+n elefante incomoda incomoda incomoda ... n incomoda
+muito mais
